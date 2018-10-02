@@ -364,9 +364,9 @@ height:50vh;
                 <span>About Naïve Bayes Classifier</span>
         </a>
         <div class="abstract-content">
-            About Naïve Bayes ClassifierDefinition朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为$\hat y = \underset{y}{\text{argmax}}P(y|x) $。 分类器主要应用了Bayes Rule, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。P(x|y)又称class model，是分类器至关重要的组成。
+            About Naïve Bayes ClassifierDefinition朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为$\hat y = \underset{y}{\text{argmax}}P(y|x)$。 分类器主要应用了Bayes Rule, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。$P(x|y)$又称class model，是分类器至关重要的组成。
 
-P(y|x) \propto P(x|y) P(y)Independence Assum...
+P(y|x) \propto P(x|y) P(y)Independence Assu...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -433,7 +433,7 @@ The coeff...
     <article class="index-post">
         <a class="abstract-title" href = "/2018/04/20/About main/" >
             
-                <span>About _name\_  = = &#34;main&#34;</span>
+                <span>About _name\_  = = &quot;main&quot;</span>
         </a>
         <div class="abstract-content">
             
@@ -1067,12 +1067,6 @@ Anoconda —&gt; Settings-User —&gt; 123456789&#123;         	"python_interpre
     
     
     
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 11
@@ -1173,11 +1167,11 @@ Anoconda —&gt; Settings-User —&gt; 123456789&#123;         	"python_interpre
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
+        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
     
         <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
     
-        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
+        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
     
         <span class="sidebar-tag-name" data-tags="Processor Architecture"><span class="iconfont-archer">&#xe606;</span>Processor Architecture</span>
     
@@ -1259,7 +1253,22 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 </html>
 
 

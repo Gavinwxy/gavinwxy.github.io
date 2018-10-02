@@ -274,7 +274,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">790</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">793</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -403,16 +403,16 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="About-Naive-Bayes-Classifier"><a href="#About-Naive-Bayes-Classifier" class="headerlink" title="About Naïve Bayes Classifier"></a>About Naïve Bayes Classifier</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为$\hat y = \underset{y}{\text{argmax}}P(y|x) $。 分类器主要应用了<strong>Bayes Rule</strong>, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。P(x|y)又称<strong>class model</strong>，是分类器至关重要的组成。</p>
+        <h1 id="About-Naive-Bayes-Classifier"><a href="#About-Naive-Bayes-Classifier" class="headerlink" title="About Naïve Bayes Classifier"></a>About Naïve Bayes Classifier</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为$\hat y = \underset{y}{\text{argmax}}P(y|x)$。 分类器主要应用了<strong>Bayes Rule</strong>, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。$P(x|y)$又称<strong>class model</strong>，是分类器至关重要的组成。</p>
 <script type="math/tex; mode=display">
 P(y|x) \propto P(x|y) P(y)</script><h2 id="Independence-Assumption"><a href="#Independence-Assumption" class="headerlink" title="Independence Assumption"></a>Independence Assumption</h2><p>朴素贝叶斯之所朴素是因为它应用了独立假设，也就是假设各个特征之间是相互独立的。这么做的原因是什么呢？因为有点难以直接描述，所以举个例子来说一下：</p>
-<p>假如我们想有贝叶斯分类器根据$20 \times 20$ 来识别数字0-9。 对于这个问题来说特征为400个像素，class为0-9的数字。 根据之前的介绍， 我们要找出给定的图片的预测分类， </p>
+<p>假如我们想有贝叶斯分类器根据$20 \times 20$ 来识别数字$0-9$。 对于这个问题来说特征为400个像素，class为$0-9$的数字。 根据之前的介绍， 我们要找出给定的图片的预测分类， </p>
 <script type="math/tex; mode=display">
 P(y|x_1,x_2,..x_{400})</script><p>然后我们会需要反转的条件概率，即给定class的400像素块黑白组合的概率</p>
 <script type="math/tex; mode=display">
-P(x_1,x_2,...x_n|y)</script><p>然而这个概率很难直接得到，因为对于400个像素块有大量的组合我们没办法一个一个数例如类别为“3”的情况下每一张20x20像素组合的概率。所以为了去找每个类别下输入向量组合的概率就用到了独立假设。这样概率就可以被估计出来了。</p>
+P(x_1,x_2,...x_n|y)</script><p>然而这个概率很难直接得到，因为对于400个像素块有大量的组合我们没办法一个一个数例如类别为“3”的情况下每一张$20 \times 20$像素组合的概率。所以为了去找每个类别下输入向量组合的概率就用到了独立假设。这样概率就可以被估计出来了。</p>
 <script type="math/tex; mode=display">
-P(x_1...x_{400}|y) = \prod_{i=1}^{400}P(x_i|x_1,..x_{i-1},y) = \prod_{i=1}^{400}P(x_i|y)</script><h3 id="What-is-Conditionally-Independent"><a href="#What-is-Conditionally-Independent" class="headerlink" title="What is Conditionally Independent ?"></a>What is Conditionally Independent ?</h3><p>一个重要概念是各个特征为 <strong>conditionally independent</strong> 而非 <strong>marginally independent</strong>。那么这两者有什么区别呢？条件独立可以表示为</p>
+P(x_1...x_{400}|y) = \prod_{i=1}^{400}P(x_i|x_1,..x_{i-1},y) = \prod_{i=1}^{400}P(x_i|y)</script><h2 id="What-is-Conditionally-Independent"><a href="#What-is-Conditionally-Independent" class="headerlink" title="What is Conditionally Independent ?"></a>What is Conditionally Independent ?</h2><p>一个重要概念是各个特征为 <strong>conditionally independent</strong> 而非 <strong>marginally independent</strong>。那么这两者有什么区别呢？条件独立可以表示为</p>
 <script type="math/tex; mode=display">
 P(x_1|x_2,y) = P(x_1|y)</script><p>在给定$y$的情况下， $x_1$与$x_2$是条件独立的。 也就是说一旦我知道了$y$，知道$x_2$不会给我任何关于$x_1$的其他信息。而一般的独立情况为</p>
 <script type="math/tex; mode=display">
@@ -569,7 +569,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#About-Naive-Bayes-Classifier"><span class="toc-number">1.</span> <span class="toc-text">About Naïve Bayes Classifier</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">1.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Independence-Assumption"><span class="toc-number">1.2.</span> <span class="toc-text">Independence Assumption</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-Conditionally-Independent"><span class="toc-number">1.2.1.</span> <span class="toc-text">What is Conditionally Independent ?</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#About-Naive-Bayes-Classifier"><span class="toc-number">1.</span> <span class="toc-text">About Naïve Bayes Classifier</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">1.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Independence-Assumption"><span class="toc-number">1.2.</span> <span class="toc-text">Independence Assumption</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Conditionally-Independent"><span class="toc-number">1.3.</span> <span class="toc-text">What is Conditionally Independent ?</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -582,12 +582,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -811,11 +805,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
+        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
     
         <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
     
-        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
+        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
     
         <span class="sidebar-tag-name" data-tags="Processor Architecture"><span class="iconfont-archer">&#xe606;</span>Processor Architecture</span>
     
@@ -899,7 +893,22 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 </html>
 
 
