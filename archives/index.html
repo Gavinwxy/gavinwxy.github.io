@@ -351,8 +351,9 @@
                 <span>About Naïve Bayes Classifier</span>
         </a>
         <div class="abstract-content">
-            About Naïve Bayes ClassifierDefinition朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为  \hat y = \underset{y}{\text{argmax}}P(y|x) 。 分类器主要应用了Bayes Rule, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。P(x|y)又称class model，是分类器至关重要的组成。$$P(y|x) \propto P(x|y) P(y)$$
-Independence As...
+            About Naïve Bayes ClassifierDefinition朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为$\hat y = \underset{y}{\text{argmax}}P(y|x) $。 分类器主要应用了Bayes Rule, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。P(x|y)又称class model，是分类器至关重要的组成。
+
+P(y|x) \propto P(x|y) P(y)Independence Assum...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -458,15 +459,14 @@ Before executing the code, it will define a few special variables. For example, 
             Single-cycleDatapath
 Multi-cycleDatapath
 Control Signals1-bit control
-###2-bit control
-
+2-bit control
 Instruction Steps
 Data Hazard Classificationhttp://web.cs.iastate.edu/~prabhu/Tutorial/PIPELINE/dataHazClass.html#RAW
 Forwarding
 There are only two way in forwarding: EX -&gt; EX and MEM -&gt; EX
 
 
-Relative Co...
+Relative Concep...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -567,6 +567,38 @@ np.bincount: Return an array representing numbers that eac...
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2017/08/15/Input and Output/" >
+            
+                <span>Python Output Format</span>
+        </a>
+        <div class="abstract-content">
+            str.format()Used to output a string in a given fomat1'I'm &#123;&#125;, a year &#123;&#125; studnet'.format('Wang Xiaoyang', 4)
+Limit output digit length:12345def make_readable(s):    return '&#123;:02&#125;:&#123;:02&#125;:&#123;:02&#125;'.format(s//3600, s%3600//60, s%3600%60)    print(make_rea...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Random Collection">Random Collection</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2017/08/15/OOP/" >
             
                 <span>Object Oriented Programming</span>
@@ -588,38 +620,6 @@ An example12345678910111213class Student(object):      # Properties    def __ini
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/08/15/Input and Output/" >
-            
-                <span>Python Output Format</span>
-        </a>
-        <div class="abstract-content">
-            str.format()Used to output a string in a given fomat1'I'm &#123;&#125;, a year &#123;&#125; studnet'.format('Wang Xiaoyang', 4)
-Limit output digit length:12345def make_readable(s):    return '&#123;:02&#125;:&#123;:02&#125;:&#123;:02&#125;'.format(s//3600, s%3600//60, s%3600%60)    print(make_rea...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Random Collection">Random Collection</a>
     
 </div>
             
@@ -682,8 +682,8 @@ Without Notation (Functions)
             Sublime Text ConfigurationAnaconda
 Install Package Control in console
 Install Anaconda package
-Anaconda –&gt; Settings-Default –&gt; “interpreter:Python”:”path/python.exe”
-Anoconda –&gt; Settings-User –&gt; 123456789&#123;         	"python_interpreter": "E:/Anaconda/python.exe",	"suppress_word_co...
+Anaconda —&gt; Settings-Default —&gt; “interpreter:Python”:”path/python.exe”
+Anoconda —&gt; Settings-User —&gt; 123456789&#123;         	"python_interpreter": "E:/Anaconda/python.exe",	"suppress_word_co...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -933,6 +933,22 @@ Anoconda –&gt; Settings-User –&gt; 123456789&#123;         	"python_interpre
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 11
@@ -1033,11 +1049,11 @@ Anoconda –&gt; Settings-User –&gt; 123456789&#123;         	"python_interpre
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
+        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
     
         <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
     
-        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
+        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
     
         <span class="sidebar-tag-name" data-tags="Processor Architecture"><span class="iconfont-archer">&#xe606;</span>Processor Architecture</span>
     

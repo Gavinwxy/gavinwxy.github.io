@@ -274,7 +274,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">787</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">790</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -403,10 +403,24 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="About-Naive-Bayes-Classifier"><a href="#About-Naive-Bayes-Classifier" class="headerlink" title="About Naïve Bayes Classifier"></a>About Naïve Bayes Classifier</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为  \hat y = \underset{y}{\text{argmax}}P(y|x) 。 分类器主要应用了<strong>Bayes Rule</strong>, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。P(x|y)又称<strong>class model</strong>，是分类器至关重要的组成。<br>$$<br>P(y|x) \propto P(x|y) P(y)<br>$$</p>
-<h2 id="Independence-Assumption"><a href="#Independence-Assumption" class="headerlink" title="Independence Assumption"></a>Independence Assumption</h2><p>朴素贝叶斯之所朴素是因为它应用了独立假设，也就是假设各个特征之间是相互独立的。这么做的原因是什么呢？因为有点难以直接描述，所以举个例子来说一下：</p>
-<p>假如我们想有贝叶斯分类器根据20 \times 20 来识别数字0-9。 对于这个问题来说特征为400个像素，class为0-9的数字。 根据之前的介绍， 我们要找出给定的图片的预测分类，<br>$$<br>P(y|x_1,x_2,..x_{400})<br>$$<br>然后我们会需要反转的条件概率，即给定class的400像素块黑白组合的概率<br>$$<br>P(x_1,x_2,…x_n|y)<br>$$<br>然而这个概率很难直接得到，因为对于400个像素块有大量的组合我们没办法一个一个数例如类别为“3”的情况下每一张20x20像素组合的概率。所以为了去找每个类别下输入向量组合的概率就用到了独立假设。这样概率就可以被估计出来了。<br>$$<br>P(x_1…x_{400}|y) = \prod_{i=1}^{400}P(x_i|x_1,..x_{i-1},y) = \prod_{i=1}^{400}P(x_i|y)<br>$$</p>
-<h3 id="What-is-Conditionally-Independent"><a href="#What-is-Conditionally-Independent" class="headerlink" title="What is Conditionally Independent ?"></a>What is Conditionally Independent ?</h3><p>一个重要概念是各个特征为 <strong>conditionally independent</strong> 而非 <strong>marginally independent</strong>。那么这两者有什么区别呢？条件独立可以表示为<br>$$<br>P(x_1|x_2,y) = P(x_1|y)<br>$$<br>在给定y的情况下， x1与x2是条件独立的。 也就是说一旦我知道了y，知道x2不会给我任何关于x1的其他信息。而一般的独立情况为<br>$$<br>P(X,Y) = P(X) \times P(Y)<br>$$<br>这种情况下就是X,Y一起发生的概率就是两者概率之积。 然而如果X, Y是条件独立的的话情况可能就不一样了，就会发生以下情况。<br>$$<br>P(X,Y) &gt; P(X) \times P(Y)<br>$$<br>X, Y并不完全独立。课上老师举的例子为X为“中暑”，Y为“去海滩”。 这两者直观上是有关联的， 满足上面不等式。但是他们两者其实都与第三个变量相联系。即“温度”H。 因为温度高了人们要去海滩，同理因为天热了所以人们会中暑。相反，一个人在任意一天去苏格兰的海滩边都不会中暑LOL。 “去海滩”和“中暑”的联系是因为隐藏变量“温度”。当温度条件给定了的情况下，这两者可能就相互独立了。<br>$$<br>P(X,Y|H) = P(X|H)\times P(Y|H)<br>$$</p>
+        <h1 id="About-Naive-Bayes-Classifier"><a href="#About-Naive-Bayes-Classifier" class="headerlink" title="About Naïve Bayes Classifier"></a>About Naïve Bayes Classifier</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为$\hat y = \underset{y}{\text{argmax}}P(y|x) $。 分类器主要应用了<strong>Bayes Rule</strong>, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。P(x|y)又称<strong>class model</strong>，是分类器至关重要的组成。</p>
+<script type="math/tex; mode=display">
+P(y|x) \propto P(x|y) P(y)</script><h2 id="Independence-Assumption"><a href="#Independence-Assumption" class="headerlink" title="Independence Assumption"></a>Independence Assumption</h2><p>朴素贝叶斯之所朴素是因为它应用了独立假设，也就是假设各个特征之间是相互独立的。这么做的原因是什么呢？因为有点难以直接描述，所以举个例子来说一下：</p>
+<p>假如我们想有贝叶斯分类器根据$20 \times 20$ 来识别数字0-9。 对于这个问题来说特征为400个像素，class为0-9的数字。 根据之前的介绍， 我们要找出给定的图片的预测分类， </p>
+<script type="math/tex; mode=display">
+P(y|x_1,x_2,..x_{400})</script><p>然后我们会需要反转的条件概率，即给定class的400像素块黑白组合的概率</p>
+<script type="math/tex; mode=display">
+P(x_1,x_2,...x_n|y)</script><p>然而这个概率很难直接得到，因为对于400个像素块有大量的组合我们没办法一个一个数例如类别为“3”的情况下每一张20x20像素组合的概率。所以为了去找每个类别下输入向量组合的概率就用到了独立假设。这样概率就可以被估计出来了。</p>
+<script type="math/tex; mode=display">
+P(x_1...x_{400}|y) = \prod_{i=1}^{400}P(x_i|x_1,..x_{i-1},y) = \prod_{i=1}^{400}P(x_i|y)</script><h3 id="What-is-Conditionally-Independent"><a href="#What-is-Conditionally-Independent" class="headerlink" title="What is Conditionally Independent ?"></a>What is Conditionally Independent ?</h3><p>一个重要概念是各个特征为 <strong>conditionally independent</strong> 而非 <strong>marginally independent</strong>。那么这两者有什么区别呢？条件独立可以表示为</p>
+<script type="math/tex; mode=display">
+P(x_1|x_2,y) = P(x_1|y)</script><p>在给定$y$的情况下， $x_1$与$x_2$是条件独立的。 也就是说一旦我知道了$y$，知道$x_2$不会给我任何关于$x_1$的其他信息。而一般的独立情况为</p>
+<script type="math/tex; mode=display">
+P(X,Y) = P(X) \times P(Y)</script><p>这种情况下就是$X$,$Y$一起发生的概率就是两者概率之积。 然而如果$X$, $Y$是条件独立的的话情况可能就不一样了，就会发生以下情况。</p>
+<script type="math/tex; mode=display">
+P(X,Y) > P(X) \times P(Y)</script><p>$X$, $Y$并不完全独立。课上老师举的例子为$X$为“中暑”，$Y$为“去海滩”。 这两者直观上是有关联的， 满足上面不等式。但是他们两者其实都与第三个变量相联系。即“温度”H。 因为温度高了人们要去海滩，同理因为天热了所以人们会中暑。相反，一个人在任意一天去苏格兰的海滩边都不会中暑LOL。 “去海滩”和“中暑”的联系是因为隐藏变量“温度”。当温度条件给定了的情况下，这两者可能就相互独立了。 </p>
+<script type="math/tex; mode=display">
+P(X,Y|H) = P(X|H)\times P(Y|H)</script><p>待更…</p>
 
     </article>
     <!-- license  -->
@@ -681,6 +695,22 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 11
@@ -781,11 +811,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
+        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
     
         <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
     
-        <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
+        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
     
         <span class="sidebar-tag-name" data-tags="Processor Architecture"><span class="iconfont-archer">&#xe606;</span>Processor Architecture</span>
     
