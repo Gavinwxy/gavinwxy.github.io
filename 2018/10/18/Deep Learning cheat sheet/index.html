@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>On the Rising Tied</title>
+    <title>My deep learning cheat sheet · On the Rising Tied</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >The Rising Tied.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">My deep learning cheat sheet</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>The Rising Tied.</a>
 </header>
@@ -220,24 +231,80 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(//source.unsplash.com/1600x900/?flower)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            My deep learning cheat sheet
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Deep Learning">Deep Learning</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Loss Function">Loss Function</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Learning Algorithm">Learning Algorithm</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Summary">Summary</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">487</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/10/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,224 +405,138 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/18/Deep Learning cheat sheet/" >
-            
-                <span>My deep learning cheat sheet</span>
-        </a>
-        <div class="abstract-content">
-            Loss FunctionsCross-entropy
-L = -\left(y\log y' + (1-y)\log (1-y')\right)
-$L$: Loss
-$y$: Target value
-$y’$: Prediction 
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="Loss-Functions"><a href="#Loss-Functions" class="headerlink" title="Loss Functions"></a>Loss Functions</h1><h2 id="Cross-entropy"><a href="#Cross-entropy" class="headerlink" title="Cross-entropy"></a>Cross-entropy</h2><script type="math/tex; mode=display">
+L = -\left(y\log y' + (1-y)\log (1-y')\right)</script><hr>
+<p>$L$: Loss</p>
+<p>$y$: Target value</p>
+<p>$y’$: Prediction </p>
+<hr>
+<h2 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h2><script type="math/tex; mode=display">
+L_i = -\log \left(\frac{\exp(f_{y_i})}{\sum_j \exp(f_j)}\right) ~~~~~~~~~\text{or}~~~~~~~~~ L_i = -f_{y_i} + \log \sum_j \exp(f_j)</script><script type="math/tex; mode=display">
+f_{y_i} = Wx_i + b</script><hr>
+<p>$L_i$: Loss for $i^{th}$ instance</p>
+<p>$f_{y_i}$: Predicted class score of $x_i$ on the right class $y_i$</p>
+<p>$f_j$: Predicted class score of $x_i$ on class $j$  </p>
+<hr>
+<h1 id="Weight-Decay"><a href="#Weight-Decay" class="headerlink" title="Weight Decay"></a>Weight Decay</h1><h2 id="L2-Regularization"><a href="#L2-Regularization" class="headerlink" title="L2 Regularization"></a>L2 Regularization</h2><p><strong>Regularized cost function</strong></p>
+<script type="math/tex; mode=display">
+C = C_0 + \frac{\lambda}{2n} \sum_w w^2</script><p><strong>Gradient calculation</strong></p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial C}{\partial w} &= \frac{\partial C_0}{\partial w} + \frac{\lambda}{n}w \\\\
+\frac{\partial C}{\partial b} &= \frac{\partial C_0}{\partial b}
+\end{align}</script><p><strong>Gradient descent</strong></p>
+<script type="math/tex; mode=display">
+\begin{align}
+w^{(t)} &=  w^{(t-1)} - \eta\frac{\part C_0}{\part w} - \eta \frac{\lambda}{n}w  \\\\
 
-Softmax
-L_i = -\log \left(\frac{\exp(f_{y_i})}{\sum_j \exp(f_j)}\right) ~~~~~~~~~\text{or}~~~~~~~~~ L_i = -f_{y_i} + \log \sum_j \exp(f_j)
-f_{y_i} = Wx_i + b
-$L_i$: Loss for $i...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Deep Learning">Deep Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Loss Function">Loss Function</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Learning Algorithm">Learning Algorithm</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Summary">Summary</a>
-    
-</div>
-            
-        </div>
+b^{(t)} &= b^{(t-1)}  - \eta \frac{\part C_0}{\part b} 
+\end{align}</script><hr>
+<p>$C$: Regularized cost function</p>
+<p>$C_0$: Original cost function</p>
+<p>$\eta$: Learning rate</p>
+<hr>
+<h2 id="L1-Regularization"><a href="#L1-Regularization" class="headerlink" title="L1 Regularization"></a>L1 Regularization</h2><p><strong>Regularized cost function</strong></p>
+<script type="math/tex; mode=display">
+C = C_0 + \frac{\lambda}{n} \sum_w |w|</script><p><strong>Gradient calculation</strong></p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\part C}{\part w} &= \frac{\part C_0}{\part w} + \frac{\lambda}{n} \text{sgn}(w) \\\\
+
+\frac{\partial C}{\partial b} &= \frac{\partial C_0}{\partial b}
+\end{align}</script><p><strong>Gradient descent </strong></p>
+<script type="math/tex; mode=display">
+\begin{align}
+w^{(t)} &=  w^{(t-1)} - \eta\frac{\part C_0}{\part w} - \eta \frac{\lambda}{n} \text{sgn}(w) \\\\
+b^{(t)} &= b^{(t-1)} - \eta \frac{\part C_0}{\part b} 
+\end{align}</script><hr>
+<p>$\text{sgn}(x)$: <strong>signum function</strong> </p>
+<script type="math/tex; mode=display">
+\text{sgn}(x) = 
+\begin{cases}
+    ~~~1, & x > 0\\
+    -1, & x < 0
+\end{cases}</script><hr>
+<h1 id="Optimizers"><a href="#Optimizers" class="headerlink" title="Optimizers"></a>Optimizers</h1><h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><script type="math/tex; mode=display">
+\Delta w_i(t) = -\eta d_i(t) + \alpha \Delta w_i(t-1)</script><p>The momentum part is the related to the previous weight gradient which can be thought as adding effect of history. </p>
+<h2 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h2><blockquote>
+<p>normalize the update for each weight</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{align}
+&S_i(0) = 0\\\\
+&S_i(t) = S_i(t-1) + d_i(t)^2\\\\
+&\Delta w_i(t) = \frac{-\eta}{\sqrt{S_i(t)}+\epsilon}d_i(t)
+\end{align}</script><ul>
+<li>The problem is $S_i$ can never get smaller, which means the effective learning rates decreases monotonically decrease.</li>
+</ul>
+<hr>
+<p>$S$: Sum squared gradient</p>
+<p>$\epsilon$: A small constant to prevent dividing by 0 situation</p>
+<hr>
+<h2 id="RMSprop"><a href="#RMSprop" class="headerlink" title="RMSprop"></a>RMSprop</h2><blockquote>
+<p>AdaGrad forces the learning rate to always decrease, this constraint is relaxed with RMSProp</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{align}
+&S_i(t) = \beta S_i(t-1) + (1-\beta) d_i(t)^2\\\\
+&\Delta w_i(t) = \frac{-\eta}{\sqrt{S_i(t)}+\epsilon}d_i(t)
+\end{align}</script><ul>
+<li>RMSProp can be viewed as a stochastic gradient descent version of <strong>RProp normalised by a moving average</strong> of the squared gradient </li>
+</ul>
+<hr>
+<p>$\beta \approx 0.9$: the decay rate </p>
+<hr>
+<h2 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h2><blockquote>
+<p>“RMSProp with momentum”</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{align}
+&M_i(t) = \alpha M_i(t-1) + (1-\alpha)d_i(t)\\\\
+&S_i(t) = \beta S_i(t-1) + (1-\beta)d_i(t^2)\\\\
+&\Delta w_i(t) = \frac{-\eta}{\sqrt{S_i(t)}+\epsilon} M_i(t)
+\end{align}</script><ul>
+<li>The first order summed gradient is normalized by second order summed one </li>
+</ul>
+<hr>
+<p>$M_i$ can be viewed as momentum part</p>
+<p>$\alpha \approx 0.9$ </p>
+<p>$\beta \approx 0.999$ </p>
+<hr>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/30/About Naïve Bayes Classifier/" >
-            
-                <span>About Naïve Bayes Classifier</span>
-        </a>
-        <div class="abstract-content">
-            About Naïve Bayes ClassifierDefinition朴素贝叶斯分类器是一种generative模型，用法为根据输入的特征向量，从概率分布模型中找出概率最大的类别。 数学表达可以写为$\hat y = \underset{y}{\text{argmax}}P(y|x)$。 分类器主要应用了Bayes Rule, 反转了条件概率表达如下式所写。 然后可以发现问题从给定特征寻找类别概率转换到了给定类别寻找特征概率。$P(x|y)$又称class model，是分类器至关重要的组成。
-
-P(y|x) \propto P(x|y) P(y)Independence Assu...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Machine Learning">Machine Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Naïve Bayes Classifier">Naïve Bayes Classifier</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/30/Divde-and-Conquer/" >
-            
-                <span>Divide and Conquer</span>
-        </a>
-        <div class="abstract-content">
-            Concept
-
-Divide input into smaller subproblems.
-Conquer the subproblems recursively.
-Combine the solutions for the subproblems into a solution for the original problem.
-
-
-Divide-and-conquer一句话总结就是“大事化小，小事化了”或者说“分而治之”。 要把一个复杂的大问题逐层化分为结构相同的多个小问题直到最基本的实例。然后解决基本问题并且合并结果来产生针对原问题的答案。这种操作一般需要递归 (Recursi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Divide and Conquer">Divide and Conquer</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/06/30/Master-Method/" >
-            
-                <span>Master Method</span>
-        </a>
-        <div class="abstract-content">
-            Master MethodConceptIn the analysis of algorithms, the master theorem provides a cookbook solution in asymptotic terms (using Big O notation) for recurrence relations of types that occur in the analysis of many divide and conquer algorithms.  Note that not all recurrence relations can be solved w...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Divide and Conquer">Divide and Conquer</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/05/03/image_compression_JPEG/" >
-            
-                <span>JPEG Image Compression</span>
-        </a>
-        <div class="abstract-content">
-            
-JPEG stands for “Joint Photographic Expert Group” 
-
-Feasibility of Compression in Spectrum
-Lower entropy in data means higher efficiency in compression.
-
-In some compression methods, the first step is to do DCT on images and then compress their spectrum.  The reasons for doing so are 
-
-The coeff...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JPEG">JPEG</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Image-Compression">Image-Compression</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/04/20/About main/" >
-            
-                <span>About _name\_  = = &quot;main&quot;</span>
-        </a>
-        <div class="abstract-content">
-            
-When the Python interpreter reads a source file, it executes all of the code found in it. The imported file or module will also be run.
-Before executing the code, it will define a few special variables. For example, if the python interpreter is running that module (the source file) as the main p...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Random Collection">Random Collection</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/09/30/About Naïve Bayes Classifier/" title= "About Naïve Bayes Classifier">
+                    <div class="prevTitle">About Naïve Bayes Classifier</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -656,6 +637,24 @@ Before executing the code, it will define a few special variables. For example, 
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Loss-Functions"><span class="toc-number">1.</span> <span class="toc-text">Loss Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cross-entropy"><span class="toc-number">1.1.</span> <span class="toc-text">Cross-entropy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Softmax"><span class="toc-number">1.2.</span> <span class="toc-text">Softmax</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Weight-Decay"><span class="toc-number">2.</span> <span class="toc-text">Weight Decay</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#L2-Regularization"><span class="toc-number">2.1.</span> <span class="toc-text">L2 Regularization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L1-Regularization"><span class="toc-number">2.2.</span> <span class="toc-text">L1 Regularization</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimizers"><span class="toc-number">3.</span> <span class="toc-text">Optimizers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Momentum"><span class="toc-number">3.1.</span> <span class="toc-text">Momentum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaGrad"><span class="toc-number">3.2.</span> <span class="toc-text">AdaGrad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RMSprop"><span class="toc-number">3.3.</span> <span class="toc-text">RMSprop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adam"><span class="toc-number">3.4.</span> <span class="toc-text">Adam</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1039,6 +1038,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
