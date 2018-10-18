@@ -443,14 +443,14 @@ b^{(t)} &= b^{(t-1)}  - \eta \frac{\part C_0}{\part b}
 C = C_0 + \frac{\lambda}{n} \sum_w |w|</script><p><strong>Gradient calculation</strong></p>
 <script type="math/tex; mode=display">
 \begin{align}
-\frac{\part C}{\part w} &= \frac{\part C_0}{\part w} + \frac{\lambda}{n} \text{sgn}(w) \\\\
+\frac{\partial C}{\partial w} &= \frac{\partial C_0}{\partial w} + \frac{\lambda}{n} \text{sgn}(w) \\\\
 
 \frac{\partial C}{\partial b} &= \frac{\partial C_0}{\partial b}
 \end{align}</script><p><strong>Gradient descent </strong></p>
 <script type="math/tex; mode=display">
 \begin{align}
-w^{(t)} &=  w^{(t-1)} - \eta\frac{\part C_0}{\part w} - \eta \frac{\lambda}{n} \text{sgn}(w) \\\\
-b^{(t)} &= b^{(t-1)} - \eta \frac{\part C_0}{\part b} 
+w^{(t)} &=  w^{(t-1)} - \eta\frac{\partial C_0}{\partial w} - \eta \frac{\lambda}{n} \text{sgn}(w) \\\\
+b^{(t)} &= b^{(t-1)} - \eta \frac{\partial C_0}{\partial b} 
 \end{align}</script><hr>
 <p>$\text{sgn}(x)$: <strong>signum function</strong> </p>
 <script type="math/tex; mode=display">
@@ -824,6 +824,14 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 14
@@ -937,6 +945,14 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Naïve Bayes Classifier"><span class="iconfont-archer">&#xe606;</span>Naïve Bayes Classifier</span>
     
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
+    
+        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
+    
+        <span class="sidebar-tag-name" data-tags="Divide and Conquer"><span class="iconfont-archer">&#xe606;</span>Divide and Conquer</span>
+    
         <span class="sidebar-tag-name" data-tags="Deep Learning"><span class="iconfont-archer">&#xe606;</span>Deep Learning</span>
     
         <span class="sidebar-tag-name" data-tags="Loss Function"><span class="iconfont-archer">&#xe606;</span>Loss Function</span>
@@ -944,14 +960,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="Learning Algorithm"><span class="iconfont-archer">&#xe606;</span>Learning Algorithm</span>
     
         <span class="sidebar-tag-name" data-tags="Summary"><span class="iconfont-archer">&#xe606;</span>Summary</span>
-    
-        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
-    
-        <span class="sidebar-tag-name" data-tags="Random Collection"><span class="iconfont-archer">&#xe606;</span>Random Collection</span>
-    
-        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
-    
-        <span class="sidebar-tag-name" data-tags="Divide and Conquer"><span class="iconfont-archer">&#xe606;</span>Divide and Conquer</span>
     
         <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
     
@@ -996,11 +1004,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Machine-Learning"><span class="iconfont-archer">&#xe60a;</span>Machine-Learning</span>
     
-        <span class="sidebar-category-name" data-categories="Deep-Learning"><span class="iconfont-archer">&#xe60a;</span>Deep-Learning</span>
-    
         <span class="sidebar-category-name" data-categories="Python-ABC"><span class="iconfont-archer">&#xe60a;</span>Python-ABC</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
+    
+        <span class="sidebar-category-name" data-categories="Deep-Learning"><span class="iconfont-archer">&#xe60a;</span>Deep-Learning</span>
     
         <span class="sidebar-category-name" data-categories="Computer-Engineering"><span class="iconfont-archer">&#xe60a;</span>Computer-Engineering</span>
     
