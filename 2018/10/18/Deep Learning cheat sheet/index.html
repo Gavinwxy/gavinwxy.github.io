@@ -278,7 +278,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">487</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">732</span>Reading time: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -407,20 +407,24 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="Loss-Functions"><a href="#Loss-Functions" class="headerlink" title="Loss Functions"></a>Loss Functions</h1><h2 id="Cross-entropy"><a href="#Cross-entropy" class="headerlink" title="Cross-entropy"></a>Cross-entropy</h2><script type="math/tex; mode=display">
+        <p>[TOC]</p>
+<h1 id="Loss-Functions"><a href="#Loss-Functions" class="headerlink" title="Loss Functions"></a>Loss Functions</h1><h2 id="Cross-entropy"><a href="#Cross-entropy" class="headerlink" title="Cross-entropy"></a>Cross-entropy</h2><script type="math/tex; mode=display">
 L = -\left(y\log y' + (1-y)\log (1-y')\right)</script><hr>
 <p>$L$: Loss</p>
 <p>$y$: Target value</p>
 <p>$y’$: Prediction </p>
 <hr>
-<h2 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h2><script type="math/tex; mode=display">
+<h2 id="Softmax1"><a href="#Softmax1" class="headerlink" title="Softmax1"></a>Softmax<sup><a href="#fn_1" id="reffn_1">1</a></sup></h2><script type="math/tex; mode=display">
 L_i = -\log \left(\frac{\exp(f_{y_i})}{\sum_j \exp(f_j)}\right) ~~~~~~~~~\text{or}~~~~~~~~~ L_i = -f_{y_i} + \log \sum_j \exp(f_j)</script><script type="math/tex; mode=display">
 f_{y_i} = Wx_i + b</script><hr>
 <p>$L_i$: Loss for $i^{th}$ instance</p>
 <p>$f_{y_i}$: Predicted class score of $x_i$ on the right class $y_i$</p>
 <p>$f_j$: Predicted class score of $x_i$ on class $j$  </p>
 <hr>
-<h1 id="Weight-Decay"><a href="#Weight-Decay" class="headerlink" title="Weight Decay"></a>Weight Decay</h1><h2 id="L2-Regularization"><a href="#L2-Regularization" class="headerlink" title="L2 Regularization"></a>L2 Regularization</h2><p><strong>Regularized cost function</strong></p>
+<h1 id="Weight-Decay"><a href="#Weight-Decay" class="headerlink" title="Weight Decay"></a>Weight Decay</h1><p><strong>Update at 10/26/18</strong></p>
+<p>Actually weight decay is not identical to what is called regularization. As pointed in paper<sup><a href="#fn_2" id="reffn_2">2</a></sup>, applying L2 on simple learning algorithm like SGD inherently contains weight decay but situation is different for adaptive learning algorithm such as Adam.  The relation between weight amplitude and amount of decay does not hold anymore because decay part is normalized not only by weight but also gradient as shown below. Therefore, it is suggested to add one direct weight decay in the update stage.</p>
+<script type="math/tex; mode=display">
+\text{weight decay for}~~\theta_{t+1} \gets \frac{\lambda_1 \omega \theta_{t}}{\sqrt{\lambda_2(g_{t}+\theta_{t})^2}}</script><h2 id="L2-Regularization"><a href="#L2-Regularization" class="headerlink" title="L2 Regularization"></a>L2 Regularization</h2><p><strong>Regularized cost function</strong></p>
 <script type="math/tex; mode=display">
 C = C_0 + \frac{\lambda}{2n} \sum_w w^2</script><p><strong>Gradient calculation</strong></p>
 <script type="math/tex; mode=display">
@@ -459,7 +463,7 @@ b^{(t)} &= b^{(t-1)} - \eta \frac{\partial C_0}{\partial b}
     ~~~1, & x > 0\\
     -1, & x < 0
 \end{cases}</script><hr>
-<h1 id="Optimizers"><a href="#Optimizers" class="headerlink" title="Optimizers"></a>Optimizers</h1><h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><script type="math/tex; mode=display">
+<h1 id="Learning-Rules"><a href="#Learning-Rules" class="headerlink" title="Learning Rules"></a>Learning Rules</h1><h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><script type="math/tex; mode=display">
 \Delta w_i(t) = -\eta d_i(t) + \alpha \Delta w_i(t-1)</script><p>The momentum part is the related to the previous weight gradient which can be thought as adding effect of history. </p>
 <h2 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h2><blockquote>
 <p>normalize the update for each weight</p>
@@ -487,7 +491,7 @@ b^{(t)} &= b^{(t-1)} - \eta \frac{\partial C_0}{\partial b}
 <li>RMSProp can be viewed as a stochastic gradient descent version of <strong>RProp normalised by a moving average</strong> of the squared gradient </li>
 </ul>
 <hr>
-<p>$\beta \approx 0.9$: the decay rate </p>
+<p>$\beta \approx 0.9​$: the decay rate </p>
 <hr>
 <h2 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h2><blockquote>
 <p>“RMSProp with momentum”</p>
@@ -496,7 +500,9 @@ b^{(t)} &= b^{(t-1)} - \eta \frac{\partial C_0}{\partial b}
 \begin{align}
 &M_i(t) = \alpha M_i(t-1) + (1-\alpha)d_i(t)\\\\
 &S_i(t) = \beta S_i(t-1) + (1-\beta)d_i(t^2)\\\\
-&\Delta w_i(t) = \frac{-\eta}{\sqrt{S_i(t)}+\epsilon} M_i(t)
+&\hat{M_i(t)} = \frac{M_i(t)}{1-\alpha^t} \\\\
+&\hat{S_i(t)} = \frac{S_i(t)}{1-\beta^t} \\\\
+&\Delta w_i(t) = \frac{-\eta}{\sqrt{S_i(t)}+\epsilon} M_i(t) 
 \end{align}</script><ul>
 <li>The first order summed gradient is normalized by second order summed one </li>
 </ul>
@@ -505,6 +511,20 @@ b^{(t)} &= b^{(t-1)} - \eta \frac{\partial C_0}{\partial b}
 <p>$\alpha \approx 0.9$ </p>
 <p>$\beta \approx 0.999$ </p>
 <hr>
+<h2 id="Cosine-Annealing-and-Warm-Restart"><a href="#Cosine-Annealing-and-Warm-Restart" class="headerlink" title="Cosine Annealing and Warm Restart"></a>Cosine Annealing and Warm Restart</h2><script type="math/tex; mode=display">
+\eta_t = \eta_{min}^{(i)} + 0.5(\eta_{max}^{(i)} - \eta_{min}^{(i)})(1+\cos(\pi T_{cur}/T_{i}))</script><hr>
+<p>$\eta_t$: the multiplier used to obtain the effective learning rate from initial one $\alpha$ as $\alpha_t = \eta_t\alpha$</p>
+<p>$\eta<em>{min}^{(i)}~~\eta</em>{min}^{(i)}$: multiplier range at the $i^{th}$ warm restart process</p>
+<p>$T_{cur}$: how many epochs have been performed since last restart. It can be decimals when we count batches as part of one epoch. (eg. 0.01 epoch, 0.1 epoch and so on)</p>
+<p>$T_i$: total epoch number for $i^{th}$ restart process. </p>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote id="fn_1">
+<sup>1</sup>. <a href="http://cs231n.github.io/linear-classify/" target="_blank" rel="noopener">Softmax Loss</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. <a href="https://arxiv.org/abs/1711.05101" target="_blank" rel="noopener">Fixing weight decay regularization in Adam</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<p><a href="https://arxiv.org/abs/1609.04747" target="_blank" rel="noopener">An overview of gradient descent optimization algorithms</a></p>
 
     </article>
     <!-- license  -->
@@ -653,7 +673,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Loss-Functions"><span class="toc-number">1.</span> <span class="toc-text">Loss Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cross-entropy"><span class="toc-number">1.1.</span> <span class="toc-text">Cross-entropy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Softmax"><span class="toc-number">1.2.</span> <span class="toc-text">Softmax</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Weight-Decay"><span class="toc-number">2.</span> <span class="toc-text">Weight Decay</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#L2-Regularization"><span class="toc-number">2.1.</span> <span class="toc-text">L2 Regularization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L1-Regularization"><span class="toc-number">2.2.</span> <span class="toc-text">L1 Regularization</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Optimizers"><span class="toc-number">3.</span> <span class="toc-text">Optimizers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Momentum"><span class="toc-number">3.1.</span> <span class="toc-text">Momentum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaGrad"><span class="toc-number">3.2.</span> <span class="toc-text">AdaGrad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RMSprop"><span class="toc-number">3.3.</span> <span class="toc-text">RMSprop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adam"><span class="toc-number">3.4.</span> <span class="toc-text">Adam</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Loss-Functions"><span class="toc-number">1.</span> <span class="toc-text">Loss Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cross-entropy"><span class="toc-number">1.1.</span> <span class="toc-text">Cross-entropy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Softmax1"><span class="toc-number">1.2.</span> <span class="toc-text">Softmax1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Weight-Decay"><span class="toc-number">2.</span> <span class="toc-text">Weight Decay</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#L2-Regularization"><span class="toc-number">2.1.</span> <span class="toc-text">L2 Regularization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L1-Regularization"><span class="toc-number">2.2.</span> <span class="toc-text">L1 Regularization</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Learning-Rules"><span class="toc-number">3.</span> <span class="toc-text">Learning Rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Momentum"><span class="toc-number">3.1.</span> <span class="toc-text">Momentum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaGrad"><span class="toc-number">3.2.</span> <span class="toc-text">AdaGrad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RMSprop"><span class="toc-number">3.3.</span> <span class="toc-text">RMSprop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adam"><span class="toc-number">3.4.</span> <span class="toc-text">Adam</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cosine-Annealing-and-Warm-Restart"><span class="toc-number">3.5.</span> <span class="toc-text">Cosine Annealing and Warm Restart</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -666,6 +686,10 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
@@ -931,6 +955,14 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="Deep Learning"><span class="iconfont-archer">&#xe606;</span>Deep Learning</span>
+    
+        <span class="sidebar-tag-name" data-tags="Loss Function"><span class="iconfont-archer">&#xe606;</span>Loss Function</span>
+    
+        <span class="sidebar-tag-name" data-tags="Learning Algorithm"><span class="iconfont-archer">&#xe606;</span>Learning Algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Summary"><span class="iconfont-archer">&#xe606;</span>Summary</span>
+    
         <span class="sidebar-tag-name" data-tags="Machine Learning"><span class="iconfont-archer">&#xe606;</span>Machine Learning</span>
     
         <span class="sidebar-tag-name" data-tags="Naïve Bayes Classifier"><span class="iconfont-archer">&#xe606;</span>Naïve Bayes Classifier</span>
@@ -944,14 +976,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="Divide and Conquer"><span class="iconfont-archer">&#xe606;</span>Divide and Conquer</span>
     
         <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
-    
-        <span class="sidebar-tag-name" data-tags="Deep Learning"><span class="iconfont-archer">&#xe606;</span>Deep Learning</span>
-    
-        <span class="sidebar-tag-name" data-tags="Loss Function"><span class="iconfont-archer">&#xe606;</span>Loss Function</span>
-    
-        <span class="sidebar-tag-name" data-tags="Learning Algorithm"><span class="iconfont-archer">&#xe606;</span>Learning Algorithm</span>
-    
-        <span class="sidebar-tag-name" data-tags="Summary"><span class="iconfont-archer">&#xe606;</span>Summary</span>
     
         <span class="sidebar-tag-name" data-tags="Processor Architecture"><span class="iconfont-archer">&#xe606;</span>Processor Architecture</span>
     
@@ -992,13 +1016,13 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="Deep-Learning"><span class="iconfont-archer">&#xe60a;</span>Deep-Learning</span>
+    
         <span class="sidebar-category-name" data-categories="Machine-Learning"><span class="iconfont-archer">&#xe60a;</span>Machine-Learning</span>
     
         <span class="sidebar-category-name" data-categories="Python-ABC"><span class="iconfont-archer">&#xe60a;</span>Python-ABC</span>
     
         <span class="sidebar-category-name" data-categories="Algorithm"><span class="iconfont-archer">&#xe60a;</span>Algorithm</span>
-    
-        <span class="sidebar-category-name" data-categories="Deep-Learning"><span class="iconfont-archer">&#xe60a;</span>Deep-Learning</span>
     
         <span class="sidebar-category-name" data-categories="Computer-Engineering"><span class="iconfont-archer">&#xe60a;</span>Computer-Engineering</span>
     
