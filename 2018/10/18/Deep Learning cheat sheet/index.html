@@ -513,7 +513,7 @@ b^{(t)} &= b^{(t-1)} - \eta \frac{\partial C_0}{\partial b}
 <h2 id="Cosine-Annealing-and-Warm-Restart"><a href="#Cosine-Annealing-and-Warm-Restart" class="headerlink" title="Cosine Annealing and Warm Restart"></a>Cosine Annealing and Warm Restart</h2><script type="math/tex; mode=display">
 \eta_t = \eta_{min}^{(i)} + 0.5(\eta_{max}^{(i)} - \eta_{min}^{(i)})(1+\cos(\pi T_{cur}/T_{i}))</script><hr>
 <p>$\eta_t$: the multiplier used to obtain the effective learning rate from initial one $\alpha$ as $\alpha_t = \eta_t\alpha$</p>
-<p>$\eta<em>{min}^{(i)}~\eta</em>{min}^{(i)}$: multiplier range at the $i^{th}$ warm restart process</p>
+<p>$\eta<em>{min}^{(i)}$, $\eta</em>{min}^{(i)}$: multiplier range at the $i^{th}$ warm restart process</p>
 <p>$T_{cur}$: how many epochs have been performed since last restart. It can be decimals when we count batches as part of one epoch. (eg. 0.01 epoch, 0.1 epoch and so on)</p>
 <p>$T_i$: total epoch number for $i^{th}$ restart process. </p>
 <hr>
@@ -837,6 +837,16 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 14
@@ -909,12 +919,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2017/08/15/OOP/" >Object Oriented Programming</a>
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2017/08/15/Input and Output/" >Python Output Format</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2017/08/15/Input and Output/" >Python Output Format</a>
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2017/08/15/OOP/" >Object Oriented Programming</a>
         </li>
     
     
@@ -966,9 +976,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Divide and Conquer"><span class="iconfont-archer">&#xe606;</span>Divide and Conquer</span>
     
-        <span class="sidebar-tag-name" data-tags="Processor Architecture"><span class="iconfont-archer">&#xe606;</span>Processor Architecture</span>
-    
         <span class="sidebar-tag-name" data-tags="Practices"><span class="iconfont-archer">&#xe606;</span>Practices</span>
+    
+        <span class="sidebar-tag-name" data-tags="Processor Architecture"><span class="iconfont-archer">&#xe606;</span>Processor Architecture</span>
     
         <span class="sidebar-tag-name" data-tags="JPEG"><span class="iconfont-archer">&#xe606;</span>JPEG</span>
     
